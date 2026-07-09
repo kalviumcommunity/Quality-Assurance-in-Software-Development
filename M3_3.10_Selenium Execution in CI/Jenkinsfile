@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn -B clean compile'
+            }
+        }
+
+        // TODO (assignment): add a stage('Test') that runs `mvn -B test`.
+        //
+        // Then add a post { always { ... } } block after `stages` that:
+        //   junit 'target/surefire-reports/*.xml'
+        //   archiveArtifacts artifacts: 'target/surefire-reports/**', allowEmptyArchive: false
+        //
+        // Both snippets were taught in Scenes 4 and 5 of LU 3.10.
+        // The headless Chrome config is already in BaseTest.java — do not change it.
+    }
+}

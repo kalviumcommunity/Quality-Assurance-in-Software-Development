@@ -4,7 +4,7 @@ org.openqa.selenium.NoSuchElementException:
   no such element: Unable to locate element:
   {"method":"css selector","selector":".shopping_cart_link"}
   (Session info: chrome=124.0 headless)
-    at com.example.selenium.FlakyCheckoutTest.login_thenOpenCart_reachesCartPage(FlakyCheckoutTest.java:34)
+    at com.example.selenium.FlakyCheckoutTest.login_thenOpenCart_reachesCartPage(FlakyCheckoutTest.java:36)
 
 Context:
   - The cart link IS present in the DOM and visible when the run is watched.

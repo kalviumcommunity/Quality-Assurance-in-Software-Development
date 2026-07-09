@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ---- provided (taught in LU 3.10) ----
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build
+        run: mvn -B clean compile
+
+      # ============================================================
+      # TODO (assignment): add exactly two steps below.
+      #
+      # 1) A "Test" step that runs the Selenium suite headless:
+      #        - name: Test
+      #          run: mvn -B test
+      #
+      # 2) An artifact-upload step that captures the Surefire report
+      #    EVEN WHEN TESTS FAIL (note the `if: always()`):
+      #        - name: Upload Surefire report
+      #          if: always()
+      #          uses: actions/upload-artifact@v4
+      #          with:
+      #            name: surefire-reports
+      #            path: target/surefire-reports/**
+      #
+      # Both ideas were taught in Scenes 4 and 5 of LU 3.10.
+      # The headless Chrome config is already in BaseTest.java — do not change it.
+      # ubuntu-latest ships Chrome; Selenium Manager resolves the driver automatically.
+      # ============================================================

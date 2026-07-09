@@ -75,6 +75,9 @@ class MobileEmulationLoginTest {
         assertTrue(innerWidth < 500,
                 "Viewport should be phone-sized; was " + innerWidth + "px");
 
+        System.out.println("[mobile] reached " + driver.getCurrentUrl()
+                + " | viewport innerWidth = " + innerWidth + "px");
+
         // save visual proof of the mobile render
         File shot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         new File("target").mkdirs();

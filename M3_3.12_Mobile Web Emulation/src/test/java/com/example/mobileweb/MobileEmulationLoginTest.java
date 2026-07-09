@@ -44,11 +44,19 @@ class MobileEmulationLoginTest {
         deviceMetrics.put("pixelRatio", 2.75);
 
         Map<String, Object> mobileEmulation = new HashMap<>();
-        // TODO: attach the phone profile taught in the LU:
-        mobileEmulation.put("deviceMetrics", deviceMetrics);
-        mobileEmulation.put("userAgent",
-                "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 "
-              + "(KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36");
+        // TODO (assignment): complete the device profile taught in the LU by
+        // attaching BOTH keys to the mobileEmulation map, then delete this note:
+        //   1. "deviceMetrics" -> the deviceMetrics map defined above
+        //   2. "userAgent"     -> a mobile (Pixel) user-agent string
+        //
+        // e.g.
+        //   mobileEmulation.put("deviceMetrics", deviceMetrics);
+        //   mobileEmulation.put("userAgent",
+        //       "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 "
+        //     + "(KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36");
+        //
+        // Leaving the map empty makes Chrome run at DESKTOP width, so the
+        // innerWidth < 500 assertion below will fail until you fill it in.
 
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("mobileEmulation", mobileEmulation);
